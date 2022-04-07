@@ -54,7 +54,7 @@
     opacity: 0.05;
     z-index: -20;
     pointer-events: none;
-    background: url(/assets/noise.gif);
+    background: url(../assets/noise.gif);
 }
 
 /* CUSTOM CURSOR */
