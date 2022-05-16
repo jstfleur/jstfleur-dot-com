@@ -7,7 +7,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    cursor: none;
+    /* cursor: none; */
 }
 
 
@@ -58,7 +58,7 @@
 }
 
 /* CUSTOM CURSOR */
-.cursor {
+/* .cursor {
     pointer-events: none;
     position: fixed;
     padding: 0.4rem;
@@ -71,7 +71,7 @@
 .cursor.enlarged {
     transform: translate(-50%, -50%) scale(4);
     mix-blend-mode: multiply;
-}
+} */
 
 
 
@@ -1474,6 +1474,10 @@ div.contact {
     display: none;
 }
 
+
+.myGNV {
+    /* cursor:pointer; */
+}
 
 
 
