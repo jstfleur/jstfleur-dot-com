@@ -1,0 +1,965 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Archivo', sans-serif;
+}
+
+/* SCROLLBAR */
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: black transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+} 
+
+*::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 0;
+    border: 3px solid black;
+}
+
+/* HIGHLIGHT */
+*::selection {
+
+    background: transparent;
+    color: orangered;
+}
+
+/* NOISE IN THE BACK */
+.noise::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    opacity: 0.04;
+    z-index: -20;
+    pointer-events: none;
+    background: url(/assets/noise.gif);
+}
+html {
+    scroll-behavior:smooth;
+}
+body {
+    display: flex;
+    background-color: #eae9e5;
+}
+
+
+
+/* SPLASH SCREEN */
+.intro {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    transition: 1s;
+}
+.logo-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.logo {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+.logo.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+.logo.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+
+.sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 425px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 35px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar header h4 {
+    font-size: 21px;
+    line-height: 1.25;
+    font-weight: 500;
+}
+.sidebar header h5 {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+.sidebar nav li {
+    list-style: none;
+    line-height: 1.5;
+}
+.sidebar nav li a span {
+    opacity: 0;
+    font-size: 15px;
+}
+.sidebar nav li a.current {
+    color: orangered;
+    padding-left: 5px;
+}
+.sidebar nav li a.current span {
+    opacity: 1;
+}
+.sidebar nav li a{
+    text-decoration: none;
+    color:  black;
+    font-size: 20px;
+}
+.sidebar ul.contact {
+    bottom: 0;
+}
+.sidebar ul.contact li {
+    list-style: none;
+    line-height: 1.5;
+}
+.sidebar ul.contact li a{
+    text-decoration: none;
+    color: black;
+}
+.sidebar ul.contact li a:hover{
+    color: orangered;
+    padding-left: 5px;
+    transform: scale(1.5);
+}
+.sidebar ul.contact li span {
+    font-size: 12px;
+}
+
+
+main {
+    width: 100%;
+}
+
+main section {
+    min-height: 100vh;
+    padding: 30px;
+}
+main section h3 {
+    font-size: 50px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+#hello {
+    padding-bottom: 30vh;
+}
+#hello hr {
+    margin: 80px 0 50px;
+}
+#hello h2 {
+    font-size: 5vw;
+    font-weight: 400;
+    line-height: 1.2;
+}
+#hello h2 span {
+    /* color: orangered; */
+    text-decoration: underline;
+    text-decoration-color: orangered;
+    text-decoration-style: dotted;
+}
+
+
+
+
+
+
+#projects {
+    padding-bottom: 30vh;
+}
+#projects .project-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 30px 0;
+}
+#projects .project-box h5 {
+    font-size: 1.5vw;
+    font-weight: 400;
+}
+#projects .project-box .p-number {
+    width: 5%;
+}
+#projects .project-box .p-title {
+    width: 30%;
+}
+#projects .project-box .p-type {
+    width: 40%;
+}
+#projects .project-box .p-date {
+    width: 25%;
+    background-color: rebeccapurple;
+}
+#projects .project-box .p-description {
+    width: 30%;
+    padding: 30px 10px;
+}
+#projects .project-box .p-description p {
+    line-height: 1.75;
+}
+#projects .project-box .p-img {
+    width: 65%;
+    padding: 10px;
+}
+#projects .project-box .p-img img {
+    width: 100%;
+    padding: 20px 0;
+}
+#projects .project-box .p-description .industries {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px 0 5px;
+    
+}
+#projects .project-box .p-description .industries .pill{
+    width: auto;
+    background-color: black;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 25px;
+    margin-right: 10px;
+    margin-bottom: 10px; 
+}
+#projects .project-box .p-description .btn {
+    display: flex;
+    justify-items: center;
+    margin: 50px auto;
+    width: 100%;
+}
+#projects .project-box .p-description .btn a {
+    padding: 15px 30px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px auto;
+
+}
+
+
+
+
+
+
+#about {
+    padding-bottom: 0;
+}
+#about .about-row {
+    display: flex;
+    padding: 75px 0 50px;
+    width: 100%;
+}
+#about .img-box {
+    width: 40%;
+}
+#about .img-box img {
+    width: 100%;
+}
+#about .word-box {
+    width: 60%;
+    padding: 0 25px;
+    line-height: 1.75;
+}
+#about .word-box h6 {
+    font-size: 2vw;
+    font-weight: 500;
+}
+#about .word-box p {
+    font-size: 1vw;
+    letter-spacing: .1px;
+}
+#about .copyright-row {
+    position: sticky;
+    display: flex;
+    height: 100px;
+    bottom: 0;
+}
+#about .copyright-row .copy-text {
+    width: 50%;
+    text-align: left;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+#about .copyright-row .copy-text p {
+    position: absolute;
+}
+#about .copyright-row .copy-emoji {
+    width: 50%;
+}
+#about .copyright-row .copy-emoji img {
+    width: 100px;
+    float: right;
+}
+
+
+
+
+
+
+
+
+/* enDAOment */
+main section h2 {
+    font-size: 10vw;
+}
+#enDAOment {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#enDAOment .sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 20%;
+}
+#enDAOment main {
+    display: flex;
+    min-height: 100vh;
+    width: 80%;
+}
+#enDAOment main .middle {
+    width: 75%;
+    min-height: 110vh;
+}
+#enDAOment main .middle hr {
+    margin-bottom: 25px;
+}
+#enDAOment main img {
+    width: 100%;
+}
+#enDAOment main p {
+    font-size: 18px;
+    line-height: 1.75;
+}
+#enDAOment main a {
+    color: black;
+}
+#enDAOment main a:hover {
+    color: orangered;
+}
+#enDAOment main #introduction {
+    margin-bottom: 25vh;
+}
+#enDAOment main #introduction img {
+    margin: 0px 0 25px;
+}
+#enDAOment main #project-specs {
+    padding-bottom: 25vh;
+}
+#enDAOment main #project-specs ul {
+    font-size: 24px;
+    margin-left: 50px;
+}
+#enDAOment main #project-specs ul li {
+    padding: 15px 0;
+}
+#enDAOment main #design-process {
+    margin-bottom: 25vh;
+}
+#enDAOment main #design-process img {
+    padding: 0px 0 25px;
+}
+#enDAOment main #design-process ul {
+    font-size: 18px;
+    margin-left: 50px;
+    line-height: 1.5;
+}
+#enDAOment main #design-process ul li {
+    padding: 15px 0;
+}
+#enDAOment main #whats-the-issue {
+    margin-bottom: 25vh;
+}
+#enDAOment main #user-interviews {
+    margin-bottom: 25vh;
+}
+#enDAOment main #user-interviews ul {
+    font-size: 18px;
+    margin-left: 50px;
+    line-height: 1.5;
+}
+#enDAOment main #user-interviews ul li {
+    padding: 15px 0;
+}
+#enDAOment main #wtf-is-a-dao {
+    margin-bottom: 25vh;
+}
+#enDAOment main #personas {
+    margin-bottom: 30vh;
+}
+#enDAOment main #personas img {
+    width: 90%;
+    display: block;
+    margin: 20px auto 50px;
+}
+#enDAOment main #problem-statements {
+    margin-bottom: 30vh;
+}
+#enDAOment main #problem-statements ul {
+    margin-left: 50px;
+    line-height: 1.5;
+    font-size: 18px;
+    margin-bottom: 75px;
+}
+#enDAOment main #problem-statements ul li {
+    padding: 15px 0;
+}
+#enDAOment main #user-flow {
+    margin-bottom: 25vh;
+}
+#enDAOment main #user-flow img {
+    display:block;
+    width: 75%;
+    margin: 30px auto 0;
+}
+#enDAOment main #lo-fi-wireframes {
+    margin-bottom: 25vh;
+}
+#enDAOment main #lo-fi-wireframes img{
+    display: block;
+    width: 300px;
+    margin: 50px auto 0;
+}
+#enDAOment main #mid-fi-wireframes {
+    margin-bottom: 25vh;
+}
+#enDAOment main #mid-fi-wireframes img {
+    margin-bottom: 25px;
+}
+#enDAOment main #final-product {
+    margin-bottom: 25vh;
+}
+#enDAOment main #final-product .proto {
+    margin-bottom: 50px;
+}
+#enDAOment main #how-it-works {
+    margin-bottom: 25vh;
+}
+#enDAOment main #how-it-works ul {
+    line-height: 1.75;
+}
+#enDAOment main #how-it-works ul img {
+    padding-bottom: 20px;
+}
+#enDAOment main #how-it-works ul li {
+    margin: 150px 0;
+}
+#enDAOment main #how-it-works ul li ul{
+    margin-left: 50px;
+}
+#enDAOment main #how-it-works ul li ul li{
+    margin: 15px 0;
+}
+#enDAOment main #final-user-testing {
+    margin-bottom: 25vh;
+}
+#enDAOment main #final-user-testing ol {
+    list-style-type: lower-alpha;
+    padding: 50px 0;
+    line-height: 1.5;
+}
+#enDAOment main #final-user-testing ol li {
+    font-size: 18px; 
+    margin-left: 50px; 
+    padding: 5px 0;
+}
+#enDAOment main #final-thoughts img {
+    display: block;
+    width: 50%;
+    margin: 50px auto;
+
+}
+#enDAOment main .sidebar2 {
+    display: flex;
+}
+#enDAOment main .sidebar2 nav {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+#enDAOment main .sidebar2 ul, ol {
+    list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#enDAOment main .sidebar2 li {
+    margin-left: 0.75rem;
+    line-height: 1.2;
+}
+#enDAOment main .sidebar2 li.active > a {
+    color: orangered;
+}
+#enDAOment main .sidebar2 hr {
+    margin: 10px 0;
+}
+#enDAOment main .sidebar2 a {
+    text-decoration: none;
+	display: block;
+	padding: .125rem 0;
+	color: black;
+	transition: all 50ms ease-in-out;
+}
+#enDAOment main .sidebar2 a:hover,
+#enDAOment main .sidebar2 a:focus {
+    color: orangered;
+}
+#enDAOment main .sidebar2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25%;
+    padding: 35px 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#silhouette {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#silhouette .sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 20%;
+}
+#silhouette main {
+    display: flex;
+    min-height: 100vh;
+    width: 80%;
+}
+#silhouette main .middle {
+    width: 75%;
+    min-height: 110vh;
+}
+#silhouette main .middle hr {
+    margin-bottom: 25px;
+}
+#silhouette main img {
+    width: 100%;
+}
+#silhouette main p {
+    font-size: 18px;
+    line-height: 1.75;
+}
+#silhouette main a {
+    color: black;
+}
+#silhouette main a:hover {
+    color: orangered;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#silhouette main .sidebar2 {
+    display: flex;
+}
+#silhouette main .sidebar2 nav {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+#silhouette main .sidebar2 ul, ol {
+    list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#silhouette main .sidebar2 li {
+    margin-left: 0.75rem;
+    line-height: 1.25;
+}
+#silhouette main .sidebar2 li.active > a {
+    color: orangered;
+}
+#silhouette main .sidebar2 hr {
+    margin: 10px 0;
+}
+#silhouette main .sidebar2 a {
+    text-decoration: none;
+	display: block;
+	padding: .125rem 0;
+	color: black;
+	transition: all 50ms ease-in-out;
+}
+#silhouette main .sidebar2 a:hover,
+#silhouette main .sidebar2 a:focus {
+    color: orangered;
+}
+#silhouette main .sidebar2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25%;
+    padding: 35px 50px;
+}
+
+
+
+
+
+
+
+
+
+
+/* #silhouette .row {
+    width: 100%;
+    display: flex;
+} */
+
+#silhouette main #introduction {
+    margin-bottom: 25vh;
+}
+#silhouette main #project-specs {
+    padding-bottom: 25vh;
+}
+#silhouette main #project-specs ul {
+    font-size: 24px;
+    margin-left: 50px;
+}
+#silhouette main #project-specs ul li {
+    padding: 15px 0;
+}
+#silhouette main #design-process {
+    margin-bottom: 25vh;
+}
+#silhouette main #design-process img {
+    padding: 0px 0 25px;
+}
+#silhouette main #design-process ul {
+    font-size: 18px;
+    margin-left: 50px;
+    line-height: 1.5;
+}
+#silhouette main #design-process ul li {
+    padding: 15px 0;
+}
+
+#silhouette main #background {
+    margin-bottom: 25vh;
+}
+#silhouette main #background img{
+    width: 90%;
+    display: block;
+    margin: 20px auto;
+}
+#silhouette main #market-research {
+    margin-bottom: 25vh;
+}
+#silhouette main #user-interviews {
+    margin-bottom: 25vh;
+}
+#silhouette main #user-interviews ul {
+    margin: 20px 50px;
+    line-height: 2;
+}
+#silhouette main #user-interviews ul li{
+    margin: 25px 0;
+    font-size: 18px;
+}
+#silhouette main #personas {
+    margin-bottom: 25vh;
+}
+#silhouette main #personas img {
+    display: block;
+    margin: 50px auto;
+}
+#silhouette main #competitive-anal {
+    margin-bottom: 25vh;
+}
+#silhouette main #problem-statements {
+    margin-bottom: 25vh;
+}
+#silhouette main #user-flow {
+    margin-bottom: 25vh;
+}
+#silhouette main #user-flow ul li {
+    margin: 50px 0;
+}
+#silhouette main #user-flow ul li img {
+    margin-top: 30px;
+}
+
+
+
+#silhouette main #lo-fi-wireframes {
+    margin-bottom: 30vh;
+}
+#silhouette main #lo-fi-wireframes img {
+    display: block;
+    width: 40%;
+    margin: 0 auto 30px;
+}
+#silhouette main #lo-fi-wireframes ul li {
+    margin: 10px 50px 20px;
+    font-size: 18px;
+    line-height: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+#silhouette main #mid-fi-wireframes {
+    margin-bottom: 30vh;
+}
+#silhouette main #mid-fi-wireframes img {
+    margin-bottom: 30px;
+}
+#silhouette main #mid-fi-wireframes ul li {
+    margin: 10px 50px 20px;
+    font-size: 18px;
+    line-height: 2;
+}
+#silhouette main #style-guide {
+    margin-bottom: 25vh;
+}
+#silhouette main #style-guide img {
+    margin: 50px 0;
+}
+#silhouette main #highlights .row .left,
+#silhouette main #highlights .row .right {
+    width: 50%;
+}
+#silhouette main #final-user-testing {
+    margin-bottom: 25vh;
+}
+#silhouette main #final-user-testing ol {
+    margin: 20px 40px;
+    font-size: 18px;
+    line-height: 2;
+}
+#silhouette main #final-user-testing ol li {
+    margin: 5px 0;
+}
+#silhouette main #lessons-learned {
+    margin-bottom: 25vh;
+}
+#silhouette main #final-thoughts {
+    margin-bottom: 25vh;
+}
+#silhouette main #final-thoughts img {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#myGNV {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#myGNV .sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 20%;
+}
+#myGNV main {
+    display: flex;
+    min-height: 100vh;
+    width: 80%;
+}
+#myGNV main .middle {
+    width: 75%;
+    min-height: 110vh;
+}
+#myGNV main .middle hr {
+    margin-bottom: 25px;
+}
+#myGNV main img {
+    width: 100%;
+}
+#myGNV main p {
+    font-size: 18px;
+    line-height: 1.75;
+}
+#myGNV main a {
+    color: black;
+}
+#myGNV main a:hover {
+    color: orangered;
+}
+
+
+
+
+
+
+#myGNV main .sidebar2 {
+    display: flex;
+}
+#myGNV main .sidebar2 nav {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+#myGNV main .sidebar2 ul, ol {
+    list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#myGNV main .sidebar2 li {
+    margin-left: 0.75rem;
+    line-height: 1.25;
+}
+#myGNV main .sidebar2 li.active > a {
+    color: orangered;
+}
+#myGNV main .sidebar2 hr {
+    margin: 10px 0;
+}
+#myGNV main .sidebar2 a {
+    text-decoration: none;
+	display: block;
+	padding: .125rem 0;
+	color: black;
+	transition: all 50ms ease-in-out;
+}
+#myGNV main .sidebar2 a:hover,
+#myGNV main .sidebar2 a:focus {
+    color: orangered;
+}
+#myGNV main .sidebar2 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25%;
+    padding: 35px 50px;
+}
