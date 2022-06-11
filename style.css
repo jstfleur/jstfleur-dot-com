@@ -222,14 +222,14 @@ main section h3 {
 }
 #projects .project-box .p-date {
     width: 25%;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
 }
 #projects .project-box .p-description {
     width: 30%;
-    padding: 30px 10px;
+    padding: 30px 20px;
 }
 #projects .project-box .p-description p {
-    line-height: 1.75;
+    line-height: 2;
 }
 #projects .project-box .p-img {
     width: 65%;
